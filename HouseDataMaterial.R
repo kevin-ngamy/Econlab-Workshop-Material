@@ -6,7 +6,6 @@ library(ggplot2)
 HousingData <- read.csv("~/PersonalProj-Kevin/Econlab/BostonHousingData.csv")
 str(HousingData)
 
-
 ### Data Wrangling ###
 HousingData$X <- NULL #Remove useless column
 
@@ -68,6 +67,15 @@ AgePlot
 FacetPlot <- ggplot(HousingData, aes(x = AvgRoom, fill = as.factor(OldHouse))) + geom_histogram(binwidth = 0.5, position = "dodge") + 
   ggtitle("Average number of Rooms") + facet_wrap(~as.factor(OldHouse))
 FacetPlot
+
+#Create Correlation Matrix
+#compute correlation matrix
+CorMat <- cor(HousingData[,1:14], HousingData[,1:14])
+
+#Correlation matrix viz
+ggcorrplot(CorMat)
+corrplot(CorMat)
+ggcorrplot(CorMat, hc.order = TRUE, type = "lower", lab = TRUE)
 
 ### Statistical Analysis ###
 
