@@ -111,8 +111,6 @@ HousingData$PredictedMedv <- ModelPrediction
 MedvPredObsPlot <- ggplot(HousingData, aes(x = medv, y = PredictedMedv)) + geom_point() + stat_smooth(method = "lm") + ggtitle("Predicted Vs Observed")
 MedvPredObsPlot
 
-#See correlation between Y_hat
-cor(HousingData$medv, HousingData$PredictedMedv)
 
 
 
